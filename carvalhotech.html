@@ -1,0 +1,1404 @@
+<!-- User Story #1: My product landing page should have a header element with a corresponding id="header".
+
+User Story #2: I can see an image within the header element with a corresponding id="header-img". A company logo would make a good image here.
+
+User Story #3: Within the #header element I can see a nav element with a corresponding id="nav-bar".
+
+User Story #4: I can see at least three clickable elements inside the nav element, each with the class nav-link.
+
+User Story #5: When I click a .nav-link button in the nav element, I am taken to the corresponding section of the landing page.
+
+User Story #6: I can watch an embedded product video with id="video".
+
+User Story #7: My landing page has a form element with a corresponding id="form".
+
+User Story #8: Within the form, there is an input field with id="email" where I can enter an email address.
+
+User Story #9: The #email input field should have placeholder text to let the user know what the field is for.
+
+User Story #10: The #email input field uses HTML5 validation to confirm that the entered text is an email address.
+
+User Story #11: Within the form, there is a submit input with a corresponding id="submit".
+
+User Story #12: When I click the #submit element, the email is submitted to a static page (use this mock URL: https://www.freecodecamp.com/email-submit).
+
+User Story #13: The navbar should always be at the top of the viewport.
+
+User Story #14: My product landing page should have at least one media query.
+
+User Story #15: My product landing page should utilize CSS flexbox at least once. -->
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+    
+    <link rel="shortcut icon" href="https://ezekielcarvalho.github.io/images_page/logotwo.png"/>
+    
+    <style>
+        
+    html {
+  scroll-behavior:auto;
+}
+        
+        
+        
+      .flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #bababa;
+            width: 100%;
+  max-width: 100%;
+  height: auto;
+          border-radius: 25px;
+          margin-top: 5%;
+           justify-content: center;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+
+  width: 100%;
+  max-width: 400px;
+  height: 100% auto;
+  margin: 100px;
+  text-align: center;
+  line-height: 100%;
+    outline-width: inherit;
+  font-size: 20px;
+}  
+        
+  
+        
+        #myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #2c2c2c;
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+#myBtn:hover {
+  background-color: #a5a5a5;
+}
+        
+        .aboutus {font-size:85%;}
+        
+        .brief {font-size: 85%;}
+        
+        body {font-family: 'PT Sans', sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #272727;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+        }
+input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+        
+        input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+
+input[type=submit]:hover {
+  background-color: #9a9a9a;
+}
+
+.container {
+  border-radius: 25px;
+  background-color: gray;
+  padding: 30px;
+}
+        
+        .pricingheadline {
+            
+        }
+        
+        img{
+  max-width: 100%;
+        height: 100%;  
+        }
+
+        
+        * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: right;
+  width: 33.33%;
+  padding: 5px;
+    padding-right: 45px;
+}
+        
+.columns {
+  float: left;
+  width: 33.33%;
+  padding: 8px;
+}
+
+.price {
+  list-style-type: none;
+  border: 1px solid #eee;
+    background-color: white;
+  margin: 0;
+  padding: 0;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.price:hover {
+  box-shadow: 0 15px 20px 0 rgb(0, 0, 0)
+}
+
+.price .header {
+  background-color: grey;
+  color: #000000;
+  font-size: 25px;
+}
+
+.price li {
+  border-bottom: 1px solid #eee;
+  padding: 20px;
+  text-align: center;
+}
+
+.price .grey {
+  background-color: #eee;
+  font-size: 20px;
+}
+
+.button {
+  background-color: grey;
+  border: none;
+  color: #000000;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+ 
+        reseller {
+ 
+  max-width: 100%;
+        height: auto; 
+        }
+        
+        .features {font-family: 'PT Sans', sans-serif;
+            font-size: 85%;
+        word-spacing: 5px;}
+        
+        .technicals {
+            
+           font-family: 'PT Sans', sans-serif;
+            font-size: 85%;
+            
+        }
+        
+body {
+font-family: 'PT Sans', sans-serif;
+  margin-left: auto;
+    margin-right: auto;
+  font-size: 2vw;
+font-family: 'PT Sans', sans-serif;
+}
+
+header {
+  background-color: #f1f1f1;
+  padding: 30px;
+  text-align: center;
+    padding-top: 60%;
+}
+
+#navbar {
+  overflow: hidden;
+ 
+    word-spacing: 3px;
+   background: #adadad;
+	padding: 10px 0;
+	margin-bottom: auto;
+	color: #fff;
+	font-size: 2vw auto;
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2);
+	border-bottom: 1px solid #00111f;
+	z-index: 1000;
+    top:0;
+	position: -webkit-sticky;
+	position: sticky;
+	
+	position: -moz-sticky;
+	position: -ms-sticky;
+	position: -o-sticky;
+    
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 15px 9px;
+  text-decoration: none;
+font-size: 85%;
+  font-family: 'PT Sans', sans-serif;
+}
+
+#navbar a:hover {
+  background-color: #4b4a4a;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4b4a4a;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+  margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+    font-size: 75%;
+font-family: 'PT Sans', sans-serif;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+    left: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+        
+.parallax {
+  /* The image used */
+    
+  background-image: url("https://www.lifewire.com/thmb/GJSBYVIRG6BRuIYrkXt9w6yMH6g=/768x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/iphone5-ios8-56a5352e3df78cf77286eecf.jpg");
+    
+
+  /* Set a specific height */
+  min-height: 500px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+
+}
+        
+section {
+  position: relative;
+}
+
+section img {
+  position: absolute;
+  width: 100% ;
+  max-width: 100% ;
+  height: auto ;
+}
+        
+.top {
+  animation-name: fade;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  animation-direction: alternate;
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+  }
+  25% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+       
+
+  .parallaxtwo {
+  /* The image used */
+  background-image: url("https://www.lifewire.com/thmb/ur3mPQ5-jMmPYCOo5TG-DwRuZ4U=/1187x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/003_4103838-5b89a89146e0fb002562e8ae.jpg");
+
+  /* Set a specific height */
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+}   
+        
+.parallaxthree {
+  /* The image used */
+  background-image: url("https://www.gizbot.com/images/2013-09/apple-iphone-5s_1378895572140.jpg") ; 
+
+  /* Set a specific height */
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 65% auto;
+    
+
+}   
+        
+        .parallaxfour {
+  /* The image used */
+  background-image: url("https://swipe.ua/content/images/31/iphone_5s_16gb_space_gray-53085618631329.jpg");
+
+  /* Set a specific height */
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 50% auto;
+}   
+        
+        .video-container {
+  text-align: center;
+}
+        
+.parallaxfive {
+  /* The image used */
+    
+  background-image: url("https://www.suitsmen.co.uk/suit-images/info-1x/mens-evening-tail-jacket-1.jpg");
+    
+
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position:top;
+  background-repeat: no-repeat;
+  background-size: 45% auto;
+    
+}   
+        
+.parallaxsix {
+  /* The image used */
+    
+  background-image: url("https://lawware.co.uk/wp-content/uploads/2016/06/terms-and-conditions-750x400.jpeg");
+    
+
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position:top;
+  background-repeat: no-repeat;
+  background-size: 85% auto;
+}   
+        
+.parallaxseven {
+  /* The image used */
+    
+  background-image: url("https://www.wanderglobe.org/wp-content/uploads/2018/05/Network-Engineer-Jobs.jpg");
+    
+
+  min-height: 800px; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position:top;
+  background-repeat: no-repeat;
+  background-size: 85% auto;
+}   
+   
+        @media screen and (max-width: 560px) {
+        
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+        }
+        
+
+ 
+}
+        
+        
+    
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .parallax {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallax.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+
+  }
+
+        
+        
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  .parallax {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallax.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+
+  }
+        
+        
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)  { .parallaxtwo {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxtwo.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+
+  }
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) { .parallaxtwo {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxtwo.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+
+  }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : portrait) { .parallaxthree {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxthree.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+
+  }
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (orientation : landscape) { .parallaxthree {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxthree.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {.parallaxfour {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxfour.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {.parallaxfour {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxfour.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+    
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {.parallaxfive {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxfive.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {.parallaxfive {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxfive.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+    
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {.parallaxsix {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxsix.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {.parallaxsix {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxsix.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+    
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : portrait) {.parallaxseven {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxseven.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (orientation : landscape) {.parallaxseven {
+  /* The image used */
+    
+  background-image: url("https://EzekielCarvalho.github.io/images_page/parallaxseven.png");
+
+  /* Set a specific height */
+  min-height: auto; 
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 55% auto;
+ margin-top: 0;
+width: auto ;
+  max-width: 100% ;
+  height: auto ; 
+        }
+        
+    </style>
+
+  <title>Carvalho Tech. - iPhone 5s</title>
+
+</head>
+    
+   <section>
+  <img class="bottom" style="max-width: 100%;
+        height: auto;" src="https://EzekielCarvalho.github.io/images_page/secondimage.png" />
+  <img class="top" style="height: auto;" src="https://EzekielCarvalho.github.io/images_page/first.png" />
+</section> 
+    
+
+    
+
+<body>
+  <main>   
+<header>
+<img class="reseller" style="    
+   width: 100%;
+  max-width: 250px;
+  height: auto;
+" src="https://www.stonegroup.co.uk/wp-content/uploads/2018/11/Apple-Authorised-Reseller-300x300.png" />
+</header>
+
+<div id="navbar">
+    
+    <img class="" style="    
+float: left!important;
+padding-right: 20px;
+padding-left: 20px;
+" src="https://ezekielcarvalho.github.io/images_page/logotwo.png"   style="width: 100%;
+  max-width: 400px;
+  height: auto;"
+   />
+ <strong> <a href="#home">Home</a>
+  <a href="#features">Features</a>
+  <a href="#pricing">Pricing</a>
+
+  <a href="#aboutus">About Us</a>
+    
+      <a href="#termsandconditions">Terms & Conditions</a>
+    
+      <a href="#privacy">Privacy</a>
+
+  <a href="#contact">Contact Us</a></strong>
+</div>
+    
+  <div class="parallaxfour"></div>  
+    
+
+
+<div class="content">
+  <h3>The iPhone 5S</h3> 
+    <div class="column">
+    <img src="http://g-ec2.images-amazon.com/images/G/31/electronics/aplus/B00FXLCD38.04.jpg" alt="iphones" style="width:100%">
+  </div>
+  <p>We've chosen the iPhone 5S as the most economical iPhone to have due to it's amazing features, and ability to install some of the latest iOS operating systems. </p>
+    
+<div id="home"></div> <br> 
+    
+<h3>Home</h3>
+<h4>Product specifications</h4>
+    <h5>Greatly chic, though Competent</h5>
+<ul><li>
+<p>This iPhone was released in 2013. Even though this iPhone has ceased in it's production by Apple, we are nevertheless keen on not ceasing to keep it from the public's hands because of the yet amazing features that it possesses. <br> <br> </p> </li></ul>
+
+<hr>
+   
+<div class="row">
+  <div class="column">
+    <img src="http://g-ec2.images-amazon.com/images/G/31/electronics/aplus/B00FXLCD38.07.jpg" alt="iPhone_backside" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="http://g-ec2.images-amazon.com/images/G/31/electronics/aplus/B00FXLCD38.06.jpg" alt="camera" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="http://g-ec2.images-amazon.com/images/G/31/electronics/aplus/B00FXLCD38.05.jpg" alt="features" style="width:100%">
+  </div>
+</div>
+
+<hr>
+<ul>
+    <li>
+<p>Amazingly powered by the A7 processor with M7 Motion Coprocessor, this 64-bit Smartphone comes packed with enough performance in a wonderfully thin and light design. With its iOS 8 Operating System (OS), the Apple iPhone 5s – 16 GB lets you enjoy endless multitasking and smooth operating experience, just like a personal computer to a high degree.</p></li>
+
+<h5>Intuitive User-Experience Like Never Before</h5>
+
+  <div class="column">
+<img src="http://g-ec2.images-amazon.com/images/G/31/electronics/aplus/B00FXLCD38.01.jpg" alt="fingerscanner" style="width:100%;" >
+  </div>
+    
+<li><p>With the built in SSD (Solid State Drive) that this iPhone offers, you need not worry about losing your files as compared to a computer's HDD (Hard Disk Drive). </p> </li> <br> 
+
+<li><p>This Smartphone also includes an ingenious Touch ID technology to give you a safe access to the smartphone through your fingerprints.</p> </li> <br>
+    
+<li><p>What makes this advanced smartphone from Apple distinct from other phones is its precision construction mark in a sleek glass and metal golden colour aluminium casing. A sapphire crystal is fitted on the home button as well as near the iSight camera for protecting it. The sleek and light device measures 7.6mm in thickness and is great for one-handed use. You can choose from stunning shades like gold, silver and space grey.</p> </li><br> <br> <Br>
+ 
+    </ul>
+</div>   
+
+<div class="parallax"></div>
+
+<div style="height:100% auto;background-color:#d3d3d3;font-size: 85%;
+    padding-left: 30px;
+  padding-right: 30px;
+    text-align: justify;"><br>
+  
+    <div id="features"></div> 
+    
+<h3>Features</h3>
+<h4>Here are the features of this amazing smartphone in detail:</h4>
+ 
+<div class="video-container"><iframe width="560" height="315" style="padding:25px;" src="https://www.youtube.com/embed/ljKg7mvld2M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" align="right" allowfullscreen></iframe>
+    </div>
+<h5>iPhone 5S Hardware</h5>
+    
+<div class="features">
+<ol>
+<li><strong>Ringer/Mute Switch:</strong> This small switch on the side of the iPhone lets you put it into silent mode, so you can receive calls with the ringer muted.</li><br>
+<li><strong>Antennas:</strong> There are a number of thin lines along the sides of the 5S, mostly near corners (only one is marked on the diagram). These are the externally visible parts of the antennas that the iPhone uses to connect to cellular networks.</li><br>
+<li><strong>Front Camera:</strong> The small dot centered above the screen and just over the speaker is one of the phone's cameras. This one is primarily used for FaceTime video calls (and selfies!). It takes 1.2-megapixel images and captures video in 720p HD. </li><br>
+<li><strong>Speaker:</strong> Just below the camera is a small opening where you listen to the audio from phone calls.</li><br>
+<li><strong>Headphone Jack:</strong> Plug your headphones in here for phone calls or to listen to music. Some accessories like car stereo cassette adapters are also attached here.</li><br>
+<li><strong>Hold Button:</strong> This button on the top of the 5S does a number of things. Clicking the button puts the iPhone to sleep or wakes it. Hold the button down for a few seconds and a slider appears onscreen that lets you turn the phone off (and — surprise! — turn it on again). If your iPhone freezes up, or you want to take a screenshot, you just need the right combination of the Hold button and Home button.</li><br>
+<li><strong>Volume Buttons:</strong> These buttons, located below the Ringer/Mute Switch, are for raising and lowering the volume of any audio playing through the 5S's headphone jack or speakers.</li><br>
+<li><strong>Home Button:</strong> This small button is central to a lot of things. On the iPhone 5S, its major new feature is Touch ID, a fingerprint scanner that unlocks the phone and authorizes secure transactions. Besides that, a single click brings you back to the home screen from any app. A double click reveals the multitasking options and lets you quit apps (or use AirPlay, on older versions of the iOS). It's also part of taking screenshots, using Siri, and restarting the iPhone.</li><br>
+<li><strong>Lightning Connector:</strong> Sync your iPhone using this port on the bottom of the 5S. The Lightning port does a lot more than that, though. It's also the way you connect your iPhone to accessories like speaker docks. Older accessories that use the larger Dock Connector need an adapter.</li><br>
+<li><strong>Speaker:</strong> There are two, mesh-covered openings at the bottom of the iPhone. One of them is the speaker that plays music, speakerphone calls, and alert sounds.</li><br>
+<li><strong>Microphone:</strong> The other opening at the bottom of the 5S is a microphone picks up your voice for phone calls.</li><br>
+<li><strong>SIM Card:</strong> This thin slot on the iPhone's side is where the SIM (Subscriber Identity Module) card goes.</li><br>
+<li><strong>Back Camera:</strong>It features an amazing camera that lets you capture some great pictures and incorporates high-quality and powerful components for a superlative performance. As for the design, it pleases anyone who’s looking for a sleek and stylish phone. The higher-quality of the two cameras, located on the back of the phone, takes 8-megapixel photos and video at 1080p HD. </li><br>
+<li><strong>Back Microphone:</strong> Near the back camera and the camera flash there's a microphone designed to capture audio when you're recording video.</li><br>
+<li><strong>Camera Flash:</strong> Pictures are made better, especially in low light, and colors are more natural thanks to the dual camera flash located on the back of the iPhone 5S and next to the back camera.</li></ol><br>
+
+    
+
+    </div>
+    </div>
+    
+<div class="parallaxtwo"></div>
+
+<div style="height:100% auto;background-color:white;font-size:20px;
+    padding-left: 30px;
+  padding-right: 30px;
+    text-align: justify;
+            font-size: 85%;">
+
+
+<h4>Brief technical details:</h4>
+
+<h5>Note: The following information can have inaccuracies. It is best to contact the seller for exact details.</h5>
+    
+    <hr>
+    
+    <div class="brief">
+    
+    <p><strong><ul>NETWORK</ul> </strong>	<strong><em><li>Technology</li> </em> </strong> 	
+GSM / CDMA / HSPA / EVDO / LTE <br> <br>
+    
+<em><li><strong>2G bands</strong> <br></li> </em>	GSM 850 / 900 / 1800 / 1900 - all models
+ 	CDMA 800 / 1700 / 1900 / 2100 - A1533 (CDMA), A1453 <br> <br>
+<em><li><strong>3G bands</strong><br></li> </em>	HSDPA 850 / 900 / 1700 / 1900 / 2100 - A1533 (GSM), A1453
+ 	CDMA2000 1xEV-DO - A1533 (CDMA), A1453
+ 	HSDPA 850 / 900 / 1900 / 2100 - A1457, A1530 <br> <br>
+<em><li><strong>4G bands</strong><br></li> </em>	LTE band 1(2100), 2(1900), 3(1800), 4(1700/2100), 5(850), 8(900), 13(700), 17(700), 19(800), 20(800), 25(1900) - A1533 GSM, A1533 CDMA <Br> <br>
+ <em><li>	<strong>LTE band</strong><br></li> </em> 1(2100), 2(1900), 3(1800), 4(1700/2100), 5(850), 8(900), 13(700), 17(700), 18(800), 19(800), 20(800), 25(1900), 26(850) - A1453 <Br> <br>
+ 	<em><li><strong>LTE band</strong><br></li> </em> 1(2100), 2(1900), 3(1800), 5(850), 7(2600), 8(900), 20(800) - A1457<br> <br>
+ 	<em><li><strong>LTE band</strong><br></li> </em> 1(2100), 2(1900), 3(1800), 5(850), 7(2600), 8(900), 20(800), 38(2600), 39(1900), 40(2300) - A1530 <br> <br>
+<em><li><strong>Speed</strong><br></li> </em>	HSPA 42.2/5.76 Mbps, LTE Cat3 100/50 Mbps, EV-DO Rev.A 3.1 Mbps<br><br>
+        <div class="row">
+  <div class="column">
+    <img src="https://www.imore.com/sites/imore.com/files/styles/w830/public/field/image/2013/09/iphone_5s_gallery_comparisons_hero_14.jpg?itok=VxOHqrRr" alt="threebacks" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.imore.com/sites/imore.com/files/styles/w830/public/field/image/2013/09/iphone_5s_gallery_comparisons_hero_1.jpg?itok=s0p3JLEn" alt="threeboxes" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://www.imore.com/sites/imore.com/files/styles/w830/public/field/image/2013/09/iphone_5s_gallery_comparisons_hero_4.jpg?itok=s0p3JLEn" alt="threesideviews" style="width:100%">
+  </div>
+</div>
+        </div>
+        <div class="technicals">
+        <strong><ul>LAUNCH </ul></strong>	<em><li>
+            
+               <img src="https://www.gizbot.com/images/2013-09/apple-iphone-5s_137889557290.jpg" alt="iphone with squirrel" width="500" height="500" align="right">
+            <strong>Announced</strong><br></li> </em>	2013, September<br><br>
+         
+<em><li><strong>Status</strong><br></li> </em>	Available. Released 2013, September<br><br>
+    
+        
+        
+<strong><ul>BODY</ul></strong>	<em><li><strong>Dimensions</strong><br></li> </em>	123.8 x 58.6 x 7.6 mm (4.87 x 2.31 x 0.30 in)<br><br>
+        
+<em><li><strong>Weight</strong><br>	</li> </em>112 g (3.95 oz)<br><br>
+        
+<em><li><strong>Build</strong><br></li> </em>	Glass front (Gorilla Glass), aluminum back, aluminum frame<br><br>
+        <img src="https://verysmartphones.com/246-large_default/iphone-5-16-gb-space-gray-unlocked.jpg" alt="chipset" width="500" height="500" align="right">
+<em><li><strong>SIM</strong><br></li> </em>	Nano-SIM<br><br>
+    
+        
+        
+<strong><ul>DISPLAY</ul> </strong>	<em><li>
+        
+
+        <strong>Type</strong><br></li> </em>	IPS LCD capacitive touchscreen, 16M colors<br><br>
+        
+<em><li><strong>Size</strong><br></li> </em>	4.0 inches, 44.1 cm2 (~60.8% screen-to-body ratio)<br><br>
+<em><li><strong>Resolution</strong><br>	</li> </em>640 x 1136 pixels, 16:9 ratio (~326 ppi density)<br><br>
+<em><li><strong>Protection</strong><br>	</li> </em>Corning Gorilla Glass, oleophobic coating<br><br>
+<strong><ul>PLATFORM</ul></strong>	<em><li> <strong>OS</strong><br></li> </em>	iOS 7, upgradable to iOS 12.4.6<br><br>
+        <img src="https://d.ibtimes.co.uk/en/full/409666/apple-a7.jpg" alt="chipset" width="500" height="333" align="right">
+<em><li><strong>Chipset</strong><br></li> </em>	Apple A7 (28 nm)<br><br>
+<em><li><strong>CPU</strong><br></li> </em>	Dual-core 1.3 GHz Cyclone (ARM v8-based)<br><br>
+<em><li><strong>GPU</strong><br></li> </em>	PowerVR G6430 (quad-core graphics)<br><br>
+<strong><ul>MEMORY</ul></strong>	<em><li><strong>Card slot</strong><br></li> </em>	No<br><br>
+<em><li><strong>Internal</strong><br></li> </em>	16GB 1GB RAM, 32GB 1GB RAM, 64GB 1GB RAM<br><br>
+ <img src="https://cdn.vox-cdn.com/thumbor/p6xcuzrfsgrxmwuAPooF3pv-4gk=/0x0:942x578/920x613/filters:focal(396x214:546x364):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/61160477/iPhone_5s_camera_press_image.1419979891.0.png" alt="chipset" width="500" height="333" align="right">
+        
+       
+<strong><ul>MAIN CAMERA</ul></strong>
+        
+        <em>
+<li><strong>Single</strong><br></li> </em>	8 MP, f/2.2, 29mm (standard), 1/3", 1.5µm, AF<br><br>
+<em><li><strong>Features</strong><br></li> </em>	Dual-LED dual-tone flash, HDR<br><br>
+<em><li><strong>Video</strong><br>	</li> </em>1080p@30fps, 720p@120fps<br><br>
+
+<strong><ul>SELFIE CAMERA</ul> </strong>        <em><li><strong>Single</strong><br></li> </em>	1.2 MP, f/2.4, 31mm (standard)<br><br>
+        <img src="https://www.imore.com/sites/imore.com/files/styles/larger/public/field/image/2013/09/iphone_5s_slow_motion_video_hero_fixed.jpg?itok=ZPepH1Uy" alt="chipset" width="500" height="333" align="right">
+<em><li><strong>Features</strong><br></li> </em>	face detection, HDR, FaceTime over Wi-Fi or Cellular<br><br>
+
+<em><li><strong>Video</strong><br>	</li> </em>720p@30fps<br><br>
+
+<strong><ul>SOUND</ul>	</strong><em><li><strong>Loudspeaker</strong><br></li> </em>	Yes<br><br>
+<em><li><strong>3.5mm jack</strong><br></li> </em>	Yes
+ 	16-bit/44.1kHz audio<br><br>
+        
+    <strong><ul>COMMS</ul></strong> <em><li>
+                <img src="https://www.imore.com/sites/imore.com/files/styles/w830_wm_blw/public/field/image/2014/11/iphone_5s_dock_closeup_hero.jpg?itok=sgAVqym4" alt="chipset" width="500" height="333" align="right">
+        <strong>WLAN </strong>	<br></li> </em>Wi-Fi 802.11 a/b/g/n, dual-band, hotspot <br><br>
+        
+        <strong><em><li>Bluetooth</li></em> </strong>	4.0, A2DP<br><br>
+<em><li><strong>GPS</strong><br></li> </em>	Yes, with A-GPS, GLONASS<br><br>
+<em><li><strong>Radio</strong><br></li> </em>	No<br><br>
+<em><li><strong>USB</strong><br></li> </em>	2.0, proprietary reversible connector<br><br>
+        
+        
+<strong><ul>FEATURES</ul></strong><em><li>
+
+ <img src="https://mobzona.com.ua/content/images/42/iphone5s-54450644097394_small11.jpg" alt="chipset" width="500" height="500" align="right">
+
+<strong>Sensors</strong><br><br></li> </em>	Fingerprint (front-mounted), accelerometer, gyro, proximity, compass,
+ 	Siri natural language commands and dictation<br><br>
+        
+
+<strong><ul>BATTERY</ul></strong>	 	Non-removable Li-Po 1560 mAh battery (5.92 Wh)<br><br>
+<em><li><strong>Stand-by</strong><br></li> </em>	Up to 250 h (2G) / Up to 250 h (3G)<br><br>
+<em><li><strong>Talk time</strong><br></li> </em>	Up to 10 h (2G) / Up to 10 h (3G)<br><br>
+<em><li><strong>Music play</strong><br></li> </em>	Up to 40 h<br><br>
+        
+        
+<strong><ul>MISC</ul></strong>	<em><li><strong>Colors</strong><br></li> </em>	Space Gray, White/Silver, Gold<br><br>
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/GrHUTadzgbM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen align="right";></iframe>
+    
+        </div>
+    
+<em><li><strong>Models</strong><br>	</li> </em>A1453, A1457, A1518, A1528, A1530, A1533<br><br>
+        
+<em><li><strong>SAR</strong><br></li> </em>	1.12 W/kg (head)     1.18 W/kg (body)    <br><br>
+<em><li><strong>SAR EU</strong><br></li> </em>	1.00 W/kg (head)     0.80 W/kg (body)    <br><br>
+<em><li><strong>Price</strong><br></li> </em>	About 330 EUR<br><br>
+<strong><ul>TESTS</ul></strong>	<br><em><li><strong>Performance</strong><br></li> </em>	
+<div class="video-container"><iframe width="560" height="315" src="https://www.youtube.com/embed/wCrkisajOog" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen align="right";></iframe>
+            </div>
+Basemark X: 14341<br><br>
+        
+        
+<em><li><strong>Display</strong><br></li> </em>	Contrast ratio: 1219:1 (nominal) / 3.565:1 (sunlight)<br><br>
+<em><li><strong>Camera</strong><br>	</li> </em>Photo / Video<br><br>
+<em><li><strong>Loudspeaker</strong><br></li> </em>	Voice 68dB / Noise 66dB / Ring 69dB<br><br>
+<em><li><strong>Audio quality</strong><br></li> </em>	Noise -93.6dB / Crosstalk -90.3dB<br><br>
+<em><li><strong>Battery life</strong><br></li> </em>	
+Endurance rating 54h<br><br>
+    
+    <hr>
+
+</div>
+    </p>
+        
+    
+<div class="parallaxthree"></div>
+        
+        <div id="pricing"></div> 
+
+<h3 class="pricingheadline" style="text-align:center">Pricing</h3>
+
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Space Grey</li>
+<img src="https://swipe.ua/content/images/31/iphone_5s_16gb_space_gray-53085618631329.jpg"alt="black" style="width:100%" height="100%">  
+
+    <li>Capacity:<br> 16 GB <BR>32GB <br> 64 GB<br>
+        no card slot</li>
+    <li>Size & Weight: <br>
+        112g, 7.6mm thickness <br></li>
+    <li>Display: <br>
+      4.0" <br>
+640x1136 pixels<br></li>
+    <li>Release date: <br>
+      September 2013<br></li>
+    <li>OS:<br>
+      iOS 7, upto iOS 12.4.6</li>
+       <li>Camera: <br>
+      8MP Back, 1.2 MP Front<br></li>
+         <li>RAM: <br>
+      1GB Apple A7 chipset<br></li>   <li>Battery: <br>
+      1560mAh Li-Po<br></li>
+         <li>Price:<br>
+             150 <br> </li>
+    <li> 
+      Free: <br>
+        charger <br>
+        lightening USB cable <br>
+        SIM card remover pin <br>
+        icloud account with minimal storage <br>
+        Apple airpods, <br>
+      protection screen <br>
+      Radiation protective case <br>
+      upto 5 years warranty<br>
+      Carvalho tech. membership<br></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header" style="background-color:grey">Gold</li>
+      <img src="https://hurtownia.gtmt.pl/userdata/public/gfx/53f7bef04ffe55eb463bd3575be72a38.jpg"alt="gold" style="width:100%" height="100%">  
+     <li>Capacity:<br> 16 GB <BR>32GB <br> 64 GB<br>
+        no card slot</li>
+    <li>Size & Weight: <br>
+        112g, 7.6mm thickness <br></li>
+    <li>Display: <br>
+      4.0" <br>
+640x1136 pixels<br></li>
+    <li>Release date: <br>
+      September 2013<br></li>
+    <li>OS:<br>
+      iOS 7, upto iOS 12.4.6</li>
+       <li>Camera: <br>
+      8MP Back, 1.2 MP Front<br></li>
+         <li>RAM: <br>
+      1GB Apple A7 chipset<br></li>   <li>Battery: <br>
+      1560mAh Li-Po<br></li>
+         <li>Price:<br>
+             150 <br> </li>
+    <li> 
+      Free: <br>
+        charger <br>
+        lightening USB cable <br>
+        SIM card remover pin <br>
+        icloud account with minimal storage <br>
+        Apple airpods, <br>
+      protection screen <br>
+      Radiation protective case <br>
+      upto 5 years warranty<br>
+      Carvalho tech. membership<br></li>
+  </ul>
+</div>
+
+<div class="columns">
+  <ul class="price">
+    <li class="header">Silver</li>
+      
+<img src="https://EzekielCarvalho.github.io/images_page/iphone-5s-min-500x500.jpg"alt="silver" style="width:100%" height="100%">  
+      <li>Capacity:<br> 16 GB <BR>32GB <br> 64 GB<br>
+        no card slot</li>
+    <li>Size & Weight: <br>
+        112g, 7.6mm thickness <br></li>
+    <li>Display: <br>
+      4.0" <br>
+640x1136 pixels<br></li>
+    <li>Release date: <br>
+      September 2013<br></li>
+    <li>OS:<br>
+      iOS 7, upto iOS 12.4.6</li>
+       <li>Camera: <br>
+      8MP Back, 1.2 MP Front<br></li>
+         <li>RAM: <br>
+      1GB Apple A7 chipset<br></li>   <li>Battery: <br>
+      1560mAh Li-Po<br></li>
+         <li>Price:<br>
+             150 <br> </li>
+    <li> 
+      Free: <br>
+        charger <br>
+        lightening USB cable <br>
+        SIM card remover pin <br>
+        icloud account with minimal storage <br>
+        Apple airpods, <br>
+      protection screen <br>
+      Radiation protective case <br>
+      upto 5 years warranty<br>
+      Carvalho tech. membership<br></li>
+  </ul>
+</div>
+
+        
+<hr><br> <br>
+<div id="aboutus"></div> 
+        
+<div class="aboutus">
+<Strong><h3>About us</h3></Strong>
+
+<article>
+        <p>Carvalho Technologies Ltd., founded in 2020, is a partnership business between Ezekiel & Elijah Carvalho working in link with Apple Technologies LLC USA and is located in Chelmsford, England, UK.
+    The partners originally from Lisbon, Portugal were keen on furthering their Business Administration careers shortly after completing graduation and have thus been successful with selling over 10 iPhones per day since January, ever since the inception of their business, all the while employing expert marketing skills and faculties to attract and appeal an even greater crowd.</p>
+    
+    <p>Ezekiel & Elijah moved to the UK from Portugal shortly after starting and ending a small personal private business in Portugal of selling second hand phones to the public. With the success of their business ventures as young teenagers, on completion of their graduation and studies into IT, they thought it best to move to the UK to start a new business afresh with the official partnership of Apple, USA.</p>
+    
+    <p>Both partners continue to endeavour to sell and further their marketing of the apple iPhone 5s and are considering of adding other apple products into their sale as perks. They also endeavour to add additional apple iPhones and MacBooks into their sales in due course.</p>
+    
+        </article></div>
+        
+        <div class="row">
+  <div class="column">
+    <img src="https://d3d00swyhr67nd.cloudfront.net/_source/ECCC_location_image_2.jpg" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://r-cf.bstatic.com/images/hotel/max1280x900/191/19141958.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Chelmsford_Cathedral.jpg/800px-Chelmsford_Cathedral.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+
+        <hr>
+        
+    <div class="parallaxfive"></div>
+
+<div style="height:100% auto;background-color:#d3d3d3; font-size:20px;
+
+    text-align: justify;
+            font-size: 85%;">
+    
+
+
+    <hr>
+    
+    <div id="termsandconditions"></div> <br>
+  <strong>  <h3>Terms & Conditions</h3> </strong>
+
+    <article> <ul> <li>
+        Goods once sold will not be taken back nor exchanged. So please ensure that you choose the right product.
+        </li> <br>
+        
+        <li>
+        Goods that are found to be defective have to be returned to the store within 24hrs of purchase of the product.
+        </li> <br>
+        <li>
+        All products sold will have a warranty of 1 year that is extendable on request on further payment of warranty certificates that would be issued from Apple.</li> <Br>
+            <li>Warranty does not cover damages that are inflicted as a result of ones own negligence which is not limited to dropping the phone, or spilling water or other liquids onto the phone, deliberate mismanagement and mishandling of the products etc.</li> <br>
+        <li>All iPhones sold will be sold at an all inclusive price, completely inclusive of taxes imposed by the UK Government.</li> <br>
+        <li>Payments made via credit/ debit cards will incur a 2.5% service charge fee, so customers are advised to choose their payment method judiciously.</li> <br>
+        
+        </ul> </article>
+
+    
+    <div class="parallaxsix"></div>
+
+<div style="height:100% auto;background-color:white;font-size:20px;
+
+    text-align: justify;
+            font-size: 85%;">
+    <div id="privacy"></div> <br>
+     <h3>Privacy</h3>
+
+    <article><p> We greatly value your privacy concerning any personal data that is submitted to us via our contact page, email, phone etc. We do endeavour to ensure that all electronic data is safely secured in our private servers located in Portugal which are securely guarded. <br> <br> All physical correspondence is kept within our company vault and is all treated with the utmost confidence. Thus you can rest assured that your personal details such as your address, email, credit card or debit card details will never be compromised nor revealed. Much obliged for doing business with us.</p></article> 
+    
+        <div class="parallaxseven"></div>
+
+<div style="height:100% auto;background-color:white;font-size:20px;
+
+    text-align:left;
+            font-size: 85%;"> </div>
+    <div id="contact"></div> <br>
+<h3>Contact/ Order Form</h3>
+    
+<p>If you would like to order an iPhone 5S, please fill in the below form and we will get back to you within 24hrs to complete and finalize your order along with establishing a secure payment gateway.</p>
+
+<div class="container">
+  <form action="https://www.freecodecamp.com/email-submit">
+    <label for="fname">First-Name </label>
+    <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+
+    <label for="lname">Last-Name </label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+      
+      <label for="email">Email-address </label> <br>
+    <input type="email" id="email" name="email" 
+        title="The domain portion of the email address is invalid (the portion after the @)." pattern="^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*(\.\w{2,})+$"       
+        placeholder="Please enter your valid email address here if any" > <br>
+
+   <label for="country">Country </label>
+  <input type="text" id="country" name="country" placeholder="Your country.." required> <Br>
+      
+         <label for="state">State </label>
+  <input type="text" id="state" name="state" placeholder="Your state.." required><Br>
+      
+         <label for="pinzip">PIN-or-ZIP-code </label>
+  <input type="number" id="pinzip" name="pinzip" placeholder="Your PIN/ ZIP code.."required> <br>
+      
+         <label for="phonenumber">Phone-number</label>
+  <input type="number" id="phonenumber" name="phonenumber" placeholder="Your phone number.."required>
+      
+         <label for="address">Address</label>
+  <input type="text" id="address" name="address" placeholder="Your full home/ office address.."required>
+
+    <label for="subject">Additional-details</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+    <div class="video-container" style="margin-top: 5vw; text-align: left">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2470.887276328496!2d0.46855866671373464!3d51.735097095138045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s!2sBurgess%20Springs!5e0!3m2!1sen!2sin!4v1586276507821!5m2!1sen!2sin" width="100%" height="600" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div> <br> <Br><br>
+    
+    
+    
+    
+
+<h3><article style="text-align: center;"> <strong>For further information, you can reach out to us on the following contact details:</strong></article></h3>
+    <div class="flex-container">
+ 
+
+ <div><strong> <u>Ezekiel Carvalho </u></strong><br> <Br>
+    Baker St. 22534,<br>
+    Opp. Chelemsford town hall, UK <br> <Br>
+     Phone no: 134529359234 <br><Br>
+     e-mail address: ezekielcarvalho@ctech.com <br>
+    </div>
+ <div><strong> <u>Elijah Carvalho </u></strong><br> <Br>
+    Cornwallis Rd. 125134,<br>
+    Block A-7, Harbinger Building, UK <br> <Br>
+     Phone no: 36245123412 <br><Br>
+     e-mail address: elijahcarvalho@ctech.com
+     </Br>
+     </div>
+
+     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>   
+   
+  <script>
+    window.onscroll = function() {myFunction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+    </script>
+    
+    <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 1200;
+}
+</script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  // Add smooth scrolling to all links
+  $("a").on('click', function(event) {
+
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== "") {
+      // Prevent default anchor click behavior
+      event.preventDefault();
+
+      // Store hash
+      var hash = this.hash;
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+   
+        // Add hash (#) to URL when done scrolling (default click behavior)
+        window.location.hash = hash;
+      });
+    } // End if
+  });
+});
+</script>
+     
+   <footer style="text-align: center;">
+        
+
+    
+
+     Copyright &copy 2020 Carvalho Technologies Ltd. <br> All Rights Reserved. <br> <br>
+        
+        This site works best on Google Chrome computer based browsers. This site is not recommended for smartphone usage.
+      
+      </footer>
+    
+     </main>
+    
+</body>
+</html>
