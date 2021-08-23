@@ -1,4 +1,4 @@
-# 💻 Welcome to Carvalho technologies!
+# 📱 Welcome to Carvalho technologies!
 
 ![Version](https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000)
 ![issues](https://img.shields.io/github/issues/EzekielCarvalho/restaurant-land-europe)
